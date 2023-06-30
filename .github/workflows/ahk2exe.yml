@@ -22,5 +22,4 @@ jobs:
       - name: Upload Artifact
         uses: actions/checkout@v3
         with:
-          name: custom-hotkeys.exe
-          path: custom-hotkeys.exe
+          path: windows-hotkeys\
