@@ -23,4 +23,4 @@ jobs:
         uses: actions/checkout@v3
         with:
           name: custom-hotkeys.exe
-          files: custom-hotkeys.exe
+          path: custom-hotkeys.exe
