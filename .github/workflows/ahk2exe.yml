@@ -19,10 +19,8 @@ jobs:
         with:
           in: custom-hotkeys.ahk
 
-      - name: Release Executable
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Upload Artifact
+        uses: actions/checkout@v3
         with:
+          name: custom-hotkeys.exe
           files: custom-hotkeys.exe
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
