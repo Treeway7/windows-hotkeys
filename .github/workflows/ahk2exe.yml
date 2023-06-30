@@ -1,0 +1,28 @@
+name: AHK2EXE
+
+on:
+  push:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Compile Executable
+        uses: nekocodeX/GitHub-Action-Ahk2Exe@v1.1.0
+        with:
+          in: custom-hotkeys.ahk
+
+      - name: Release Executable
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: custom-hotkeys.exe
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
